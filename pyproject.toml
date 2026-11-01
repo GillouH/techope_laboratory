@@ -1,0 +1,58 @@
+[project]
+name = "techope-laboratory"
+version = "0.1.0"
+description = "A workspace to regroup various Python modules for personal projects."
+readme = "README.md"
+authors = [
+    { name = "Gillou", email = "gilles.hubert97@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+techope-laboratory = "techope_laboratory:main"
+
+[build-system]
+requires = ["uv_build>=0.13.6,<0.14.0"]
+build-backend = "uv_build"
+
+# ==============================================================================
+# CONFIGURATION DE RUFF (Linting & Formatage)
+# ==============================================================================
+[tool.ruff]
+# Cibler la version de Python utilisée par votre projet
+target-version = "py310"
+# Longueur maximale des lignes de code
+line-length = 88
+
+[tool.ruff.lint]
+# Sélection des règles à appliquer
+# E/W = Pycodestyle (style standard), F = Pyflakes (erreurs de syntaxe/variables)
+# I = Isort (tri automatique des imports), B = Bugbear (bugs potentiels)
+select = ["E", "W", "F", "I", "B"]
+# Règles spécifiques à ignorer si nécessaire (ex: "E501" pour ignorer la longueur des lignes)
+ignore = []
+
+[tool.ruff.format]
+# Utiliser des guillemets doubles pour les chaînes de caractères (standard Python)
+quote-style = "double"
+# Indentation standard par 4 espaces
+indent-style = "space"
+
+# ==============================================================================
+# CONFIGURATION DE PYTEST (Tests unitaires)
+# ==============================================================================
+[tool.pytest.ini_options]
+# Indique à Pytest où chercher le code source pour les imports des tests
+pythonpath = ["src"]
+# Options de base lors de l'exécution de la commande 'pytest'
+# -v : mode verbeux, --tb=short : rapports d'erreurs plus courts et lisibles
+addopts = "-v --tb=short"
+# Dossier racine où chercher les fichiers de test
+testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "ruff>=0.17.3",
+]

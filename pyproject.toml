@@ -21,9 +21,9 @@ build-backend = "uv_build"
 # ==============================================================================
 [tool.ruff]
 # Cibler la version de Python utilisée par votre projet
-target-version = "py310"
+target-version = "py313"
 # Longueur maximale des lignes de code
-line-length = 88
+line-length = 80
 
 [tool.ruff.lint]
 # Sélection des règles à appliquer
@@ -56,3 +56,6 @@ dev = [
     "pytest>=9.2.0",
     "ruff>=0.17.3",
 ]
+
+[tool.uv]
+python-preference = "only-managed"

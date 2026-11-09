@@ -7,7 +7,9 @@ authors = [
     { name = "Gillou", email = "gilles.hubert97@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "platformdirs>=4.14.3",
+]
 
 [project.scripts]
 techope-laboratory = "techope_laboratory:main"
